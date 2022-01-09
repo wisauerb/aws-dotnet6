@@ -17,4 +17,9 @@ public class TodoRepository : ITodoRepository
     {
         return _conn.GetList<TodoItem>();
     }
+
+    public TodoItem GetTodo(int id)
+    {
+        return _conn.Get<TodoItem>(id);
+    }
 }

@@ -22,4 +22,10 @@ public class TodoController : ControllerBase
     {
         return _service.GetTodos();
     }
+
+    [HttpGet("{id}", Name = "GetTodoById")]
+    public TodoItem Get(int id)
+    {
+        return _service.GetTodo(id);
+    }
 }

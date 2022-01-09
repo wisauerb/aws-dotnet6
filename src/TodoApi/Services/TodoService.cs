@@ -16,4 +16,9 @@ public class TodoService : ITodoService
     {
         return _repo.GetTodos();
     }
+
+    public TodoItem GetTodo(int id)
+    {
+        return _repo.GetTodo(id);
+    }
 }
