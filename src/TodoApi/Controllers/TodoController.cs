@@ -28,4 +28,13 @@ public class TodoController : ControllerBase
     {
         return _service.GetTodo(id);
     }
+
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    public ActionResult<TodoItem> Post(TodoItem todoItem)
+    {
+        var newItem = _service.AddTodo(todoItem);
+
+        return CreatedAtAction("Get", new { Id = newItem.Id }, newItem);
+    }
 }

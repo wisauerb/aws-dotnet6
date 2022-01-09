@@ -22,4 +22,14 @@ public class TodoRepository : ITodoRepository
     {
         return _conn.Get<TodoItem>(id);
     }
+
+    public TodoItem AddTodo(TodoItem todoItem)
+    {
+        var newId = _conn.Insert<TodoItem>(todoItem);
+
+        if (newId == null)
+            throw new ArgumentException($"Error AddTodo {todoItem}");
+
+        return todoItem with { Id = newId.GetValueOrDefault() };
+    }
 }

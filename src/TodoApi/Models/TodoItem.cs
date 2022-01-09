@@ -1,8 +1,11 @@
 namespace TodoApi.Models;
 
-public class TodoItem
+// using record type in Dapper
+// https://github.com/DapperLib/Dapper/issues/1571#issuecomment-984878454
+
+public record TodoItem
 {
-    public long Id { get; set; }
-    public string? Name { get; set; }
-    public bool IsComplete { get; set; }
+    public int Id { get; init; }
+    public string? Name { get; init; }
+    public bool IsComplete { get; init; }
 }
