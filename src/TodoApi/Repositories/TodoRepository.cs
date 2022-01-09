@@ -15,7 +15,6 @@ public class TodoRepository : ITodoRepository
 
     public IEnumerable<TodoItem> GetTodos()
     {
-        var sql = "SELECT * FROM TodoItem";
-        return _conn.Query<TodoItem>(sql);
+        return _conn.GetList<TodoItem>();
     }
 }

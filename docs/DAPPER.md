@@ -5,7 +5,13 @@
 ```bash
 dotnet add src/TodoApi package Dapper
 dotnet add src/TodoApi package Microsoft.Data.SqlClient
+dotnet add src/TodoApi package Dapper.SimpleCRUD
 ```
+
+__other dapper extension library notes__
+
+* `Dapper.Contrib` expects table name plural so rejected
+* `DapperExtensions` no custom mapping by attribute so rejected
 
 ## Trouble Shooting
 
