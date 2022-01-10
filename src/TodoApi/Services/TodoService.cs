@@ -26,4 +26,9 @@ public class TodoService : ITodoService
     {
         return _repo.AddTodo(todoItem);
     }
+
+    public int UpdateTodo(TodoItem todoItem)
+    {
+        return _repo.UpdateTodo(todoItem);
+    }
 }

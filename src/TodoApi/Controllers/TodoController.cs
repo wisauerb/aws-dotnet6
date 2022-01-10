@@ -4,6 +4,9 @@ using TodoApi.Services;
 
 namespace TodoApi.Controllers;
 
+// c.f. Microsoft scaffolding controller
+// https://www.qes.co.jp/media/Microservices/a48
+
 [ApiController]
 [Route("[controller]")]
 public class TodoController : ControllerBase
@@ -40,5 +43,19 @@ public class TodoController : ControllerBase
         var newItem = _service.AddTodo(todoItem);
 
         return CreatedAtAction("Get", new { Id = newItem.Id }, newItem);
+    }
+
+    [HttpPut("{id}")]
+    public ActionResult<TodoItem> Put(int id, TodoItem todoItem)
+    {
+        if (id != todoItem.Id)
+            return BadRequest();
+
+        var affectedRows = _service.UpdateTodo(todoItem);
+
+        if (affectedRows == 0)
+            return NotFound();
+
+        return NoContent();
     }
 }

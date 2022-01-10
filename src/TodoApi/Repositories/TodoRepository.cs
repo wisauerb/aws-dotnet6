@@ -6,10 +6,12 @@ namespace TodoApi.Repositories;
 
 public class TodoRepository : ITodoRepository
 {
+    private readonly ILogger<TodoRepository> _logger;
     private readonly IDbConnection _conn;
 
-    public TodoRepository(IDbConnection conn)
+    public TodoRepository(ILogger<TodoRepository> logger, IDbConnection conn)
     {
+        _logger = logger;
         _conn = conn;
     }
 
@@ -31,5 +33,16 @@ public class TodoRepository : ITodoRepository
             throw new ArgumentException($"Error AddTodo {todoItem}");
 
         return todoItem with { Id = newId.GetValueOrDefault() };
+    }
+
+    public int UpdateTodo(TodoItem todoItem)
+    {
+        var affectedRows = _conn.Update<TodoItem>(todoItem);
+
+        if (affectedRows == 0){
+            _logger.LogWarning($"UpdateTodo not updated {todoItem}");
+        }
+
+        return affectedRows;
     }
 }
