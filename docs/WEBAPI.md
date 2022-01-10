@@ -14,6 +14,8 @@ dotnet new xunit -o tests/TodoApi.Tests
 
 dotnet sln add src/TodoApi tests/TodoApi.Tests
 dotnet add tests/TodoApi.Tests reference src/TodoApi
+dotnet add tests/TodoApi.Tests package Moq
+dotnet add tests/TodoApi.Tests package Microsoft.AspNetCore.Mvc.Testing
 
 dotnet dev-certs https --trust
 ```
