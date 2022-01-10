@@ -24,9 +24,14 @@ public class TodoController : ControllerBase
     }
 
     [HttpGet("{id}", Name = "GetTodoById")]
-    public TodoItem Get(int id)
+    public ActionResult<TodoItem> Get(int id)
     {
-        return _service.GetTodo(id);
+        var item = _service.GetTodo(id);
+
+        if (item == null)
+            return NotFound();
+
+        return item;
     }
 
     [HttpPost]
