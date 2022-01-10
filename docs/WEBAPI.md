@@ -63,3 +63,23 @@ httprepl https://localhost:7032/swagger
 * left side menu `Run and Debug` > click green start icon to start debug app
   - will open empty https://localhost:7032/ so change to https://localhost:7032/WeatherForecast
 * `UnitTest1.cs` > click `Debug Test` under `[Fact]` to start debug test
+
+## Test Coverage
+
+```bash
+# install reportgenerator
+# https://github.com/danielpalme/ReportGenerator
+dotnet tool install -g dotnet-reportgenerator-globaltool
+
+# run test with coverage
+# https://www.kinakomotitti.net/entry/2021/02/22/142816
+dotnet test --collect:"XPlat Code Coverage"
+
+cd tests/TodoApi.Tests/TestResults/84b6c501-xxx
+
+# generate coverage report
+reportgenerator  -reports:./coverage.cobertura.xml -targetdir:. -reporttypes:Html
+
+# open coverage report
+open index.html
+```
