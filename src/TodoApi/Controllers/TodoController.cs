@@ -58,4 +58,18 @@ public class TodoController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpDelete("{id}")]
+    public ActionResult<TodoItem> Delete(int id)
+    {
+        var todoItem = _service.GetTodo(id);
+
+        if (todoItem == null)
+        {
+            return NotFound();
+        }
+
+        _service.DeleteTodo(todoItem);
+        return todoItem;
+    }
 }

@@ -45,4 +45,9 @@ public class TodoRepository : ITodoRepository
 
         return affectedRows;
     }
+
+    public void DeleteTodo(TodoItem todoItem)
+    {
+        _conn.Delete<TodoItem>(todoItem);
+    }
 }

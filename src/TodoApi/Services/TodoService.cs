@@ -31,4 +31,9 @@ public class TodoService : ITodoService
     {
         return _repo.UpdateTodo(todoItem);
     }
+
+    public void DeleteTodo(TodoItem todoItem)
+    {
+        _repo.DeleteTodo(todoItem);
+    }
 }
