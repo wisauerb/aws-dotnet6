@@ -35,7 +35,6 @@ public class TodoController : ControllerBase
     }
 
     [HttpPost]
-    [ProducesResponseType(StatusCodes.Status201Created)]
     public ActionResult<TodoItem> Post(TodoItem todoItem)
     {
         var newItem = _service.AddTodo(todoItem);

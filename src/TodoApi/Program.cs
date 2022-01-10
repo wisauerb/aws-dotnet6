@@ -1,7 +1,13 @@
 using System.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using TodoApi.Repositories;
 using TodoApi.Services;
+
+// to add swagger response code automatically
+// https://noxi515.hateblo.jp/entry/2019/01/05/183226
+// https://docs.microsoft.com/ja-jp/aspnet/core/web-api/advanced/conventions?view=aspnetcore-6.0#apply-web-api-conventions
+[assembly:ApiConventionType(typeof(DefaultApiConventions))]
 
 var builder = WebApplication.CreateBuilder(args);
 
