@@ -1,6 +1,9 @@
 # .NET 6 Rest API Todo Example
 
-* Web API using Dapper and DapperExtensions (instead of EntityFramework)
+* ASP.NET Core Web API sample project using followings
+  - .NET 6.0 SDK
+  - Dapper and SimpleCRUD (instead of EntityFramework)
+  - VSCode
 * based on Microsoft official Web API tutorial
   - https://docs.microsoft.com/ja-jp/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio-code
 
