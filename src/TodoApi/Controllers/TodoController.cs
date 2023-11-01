@@ -14,6 +14,7 @@ public class TodoController : ControllerBase
     private readonly ILogger<TodoController> _logger;
     private readonly ITodoService _service;
 
+
     public TodoController(ILogger<TodoController> logger, ITodoService service)
     {
         _logger = logger;
@@ -23,7 +24,18 @@ public class TodoController : ControllerBase
     [HttpGet(Name = "GetTodo")]
     public IEnumerable<TodoItem> Get()
     {
-        return _service.GetTodos();
+
+        var lista = new List<TodoItem>()
+        {
+            new TodoItem(20000, "Goku", true),
+            new TodoItem(19000, "Vegeta", true),
+            new TodoItem(22000, "Trunks", true),
+            new TodoItem(1000, "Krillin", true),
+            new TodoItem(10000, "Pan", true)
+        };
+
+        return lista;
+        //return _service.GetTodos();
     }
 
     [HttpGet("{id}", Name = "GetTodoById")]
